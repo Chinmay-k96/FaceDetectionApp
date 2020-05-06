@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req,res) => {
-	res.send(database.users);
+	res.send('Yeah!!! its working');
 });
 
 app.post('/signin', (req,res)=>{
@@ -97,6 +97,6 @@ app.post('/imageUrl',(req, res)=> {
 	}).catch(err=> res.status(400).json('unable to call api'))
 })
 
-app.listen(3001, ()=>{
-	console.log('app is running on port 3001');
-});
+app.listen(process.env.PORT || 3001, ()=>{
+	console.log(`app is running on port ${process.env.PORT}`);
+})
